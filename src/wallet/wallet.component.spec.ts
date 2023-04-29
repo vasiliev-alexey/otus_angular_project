@@ -5,12 +5,8 @@ import { WalletComponent } from './wallet.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        WalletComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [WalletComponent],
     }).compileComponents();
   });
 

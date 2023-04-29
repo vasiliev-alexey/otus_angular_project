@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px;
+}
+
+.logo {
+  flex: 2%;
+  align-items: center;
+  align-content: center;
+}
+.nav-position {
+  display: flex;
+  flex: 2%;
+  align-items: center;
+  justify-content: start;
+}
+.action-panel {
+  display: flex;
+  flex: 45%;
+  justify-content: end;
+  align-items: center;
+  align-content: center;
+}
