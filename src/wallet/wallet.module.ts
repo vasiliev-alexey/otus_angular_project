@@ -22,9 +22,11 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MainComponent } from './main/main.component';
 import { TuiAvatarModule } from '@taiga-ui/kit';
 import { DetailsComponent } from './main/detail/details.component';
+import { PricesComponent } from './main/prices/prices.component';
+import { SettingsComponent } from './main/settings/settings.component';
 
 @NgModule({
-  declarations: [WalletComponent, HeaderComponent, LogoComponent, NavigationComponent, MainComponent, DetailsComponent],
+  declarations: [WalletComponent, HeaderComponent, LogoComponent, NavigationComponent, MainComponent, DetailsComponent, PricesComponent, SettingsComponent],
   imports: [
     BrowserModule,
     WalletRoutingModule,

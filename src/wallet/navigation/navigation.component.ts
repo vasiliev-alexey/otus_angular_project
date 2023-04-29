@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from "@angular/core";
 import { tuiIconGridLarge, tuiIconSettingsLarge } from '@taiga-ui/icons';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'wallet-navigation',
@@ -7,8 +8,15 @@ import { tuiIconGridLarge, tuiIconSettingsLarge } from '@taiga-ui/icons';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
-  readonly avatarUrl = `https://taiga-ui.dev/assets/images/avatar.jpg`;
+
+   private router = inject(Router);
+
 
   protected readonly tuiIconSettingsLarge = tuiIconSettingsLarge;
   protected readonly tuiIconGridLarge = tuiIconGridLarge;
+
+
+  navigate(wallet: string) {
+    this.router.navigateByUrl(wallet)
+  }
 }

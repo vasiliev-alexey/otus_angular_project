@@ -5,20 +5,24 @@
       type="button"
       class="tui-space_right-3 tui-space_bottom-3"
       [icon]="tuiIconGridLarge"
-      [pseudoActive]="true">
+      [pseudoActive]="true"
+      (click)="navigate('details')"
+    >
       Dashboard
+
+
     </a>
   </li>
   <li>
-    <button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3" [icon]="wallet">Wallet</button>
+    <button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3" [icon]="wallet" (click)="navigate('wallet')">Wallet</button>
   </li>
   <li>
-    <button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3" [icon]="price">Prices</button>
+    <button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3" [icon]="price"       (click)="navigate('prices')">Prices</button>
   </li>
 </ul>
 
 <div class="settings-panel">
-  <button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3" [icon]="tuiIconSettingsLarge">
+  <button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3" [icon]="tuiIconSettingsLarge"  (click)="navigate('settings')">
     Settings
   </button>
 </div>
