@@ -11,9 +11,9 @@ import {
   TuiDataListModule,
 } from '@taiga-ui/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { metaReducers, reducers } from './store/reducers';
 import { WalletRoutingModule } from './wallet-routing.module';
 import { WalletComponent } from './wallet.component';
 import { HeaderComponent } from './header/header.component';
@@ -24,9 +24,23 @@ import { TuiAvatarModule } from '@taiga-ui/kit';
 import { DetailsComponent } from './main/detail/details.component';
 import { PricesComponent } from './main/prices/prices.component';
 import { SettingsComponent } from './main/settings/settings.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { WalletEffects } from './store/effects/wallet.effects';
+import { effects } from './store/effects';
 
 @NgModule({
-  declarations: [WalletComponent, HeaderComponent, LogoComponent, NavigationComponent, MainComponent, DetailsComponent, PricesComponent, SettingsComponent],
+  declarations: [
+    WalletComponent,
+    HeaderComponent,
+    LogoComponent,
+    NavigationComponent,
+    MainComponent,
+    DetailsComponent,
+    PricesComponent,
+    SettingsComponent,
+  ],
   imports: [
     BrowserModule,
     WalletRoutingModule,
@@ -39,6 +53,11 @@ import { SettingsComponent } from './main/settings/settings.component';
     TuiSvgModule,
     TuiHostedDropdownModule,
     TuiDataListModule,
+    EffectsModule.forRoot(effects),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [
     { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },

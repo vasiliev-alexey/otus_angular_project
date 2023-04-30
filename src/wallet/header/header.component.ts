@@ -1,6 +1,10 @@
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ViewChild } from '@angular/core';
 import { TUI_ARROW } from '@taiga-ui/kit';
 import { TuiHostedDropdownComponent } from '@taiga-ui/core';
+import { Store } from '@ngrx/store';
+import { selectCurrency, setCurrency } from '../store/reducers/currency';
+
+import { tuiIconDollarSignLarge } from '@taiga-ui/icons';
 
 @Component({
   selector: 'wallet-header',
@@ -13,6 +17,8 @@ export class HeaderComponent {
 
   @ViewChild(TuiHostedDropdownComponent)
   component?: TuiHostedDropdownComponent;
+
+  private store = inject(Store);
 
   readonly items = ['Login', 'Logout'];
 
@@ -33,16 +39,21 @@ export class HeaderComponent {
           routerLink: '/components/select',
         },
         {
-          label: 'Roubles',
+          label: 'Ruble',
           routerLink: '/components/data-list',
         },
       ],
     },
   ];
 
-  onCurrencyOpen() {
+  code$ = this.store.select(selectCurrency);
+
+  onCurrencyOpen(code: string) {
     console.log('onCurrencyOpen');
     this.currencyOpen = false;
+
+    this.store.dispatch(setCurrency({ code }));
+
     this.component?.nativeFocusableElement?.focus();
   }
 
@@ -51,4 +62,6 @@ export class HeaderComponent {
     this.open = false;
     this.component?.nativeFocusableElement?.focus();
   }
+
+  protected readonly tuiIconDollarSignLarge = tuiIconDollarSignLarge;
 }
