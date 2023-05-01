@@ -29,6 +29,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { WalletEffects } from './store/effects/wallet.effects';
 import { effects } from './store/effects';
+import { AuthGuard } from './services/AuthGuard';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { effects } from './store/effects';
         shape: 'rounded',
       },
     },
+    AuthGuard,
   ],
   bootstrap: [WalletComponent],
 })

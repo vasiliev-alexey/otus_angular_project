@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { selectCurrency, setCurrency } from '../store/reducers/currency';
 
 import { tuiIconDollarSignLarge } from '@taiga-ui/icons';
+import { login, logout } from '../store/reducers/auth.reducer';
 
 @Component({
   selector: 'wallet-header',
@@ -57,8 +58,15 @@ export class HeaderComponent {
     this.component?.nativeFocusableElement?.focus();
   }
 
-  onClick(): void {
-    console.log('ss');
+  onClick(item: string): void {
+    console.log(item);
+
+    if (item == 'Login') {
+      this.store.dispatch(login({ userName: 'alex' }));
+    } else {
+      this.store.dispatch(logout());
+    }
+
     this.open = false;
     this.component?.nativeFocusableElement?.focus();
   }
