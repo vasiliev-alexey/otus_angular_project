@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { tuiIconGridLarge, tuiIconSettingsLarge } from '@taiga-ui/icons';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectUserName } from '../store/reducers/auth.reducer';
+import { selectUserName } from '../../../auth/store/auth.reducer';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 

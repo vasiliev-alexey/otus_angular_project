@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { fetchData } from '../store/reducers/wallet';
+import { fetchData } from '../../store/wallet.reducer';
 
 @Component({
   selector: 'wallet-main',

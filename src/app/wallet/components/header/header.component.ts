@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, inject, ViewChild } from '@angular/
 import { TUI_ARROW } from '@taiga-ui/kit';
 import { TuiHostedDropdownComponent } from '@taiga-ui/core';
 import { Store } from '@ngrx/store';
-import { selectCurrency, setCurrency } from '../store/reducers/currency';
+import { selectCurrency, setCurrency } from '../../store/currency.reducer';
 
 import { tuiIconDollarSignLarge } from '@taiga-ui/icons';
-import { login, logout } from '../store/reducers/auth.reducer';
+import { login, logout } from '../../../auth/store/auth.reducer';
 
 @Component({
   selector: 'wallet-header',

@@ -1,7 +1,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { WalletModule } from './wallet/wallet.module';
+import { AppModule } from './wallet/app.module';
 
 platformBrowserDynamic()
-  .bootstrapModule(WalletModule)
+  .bootstrapModule(AppModule)
   .catch(err => console.error(err));

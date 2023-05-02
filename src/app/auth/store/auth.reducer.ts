@@ -8,7 +8,7 @@ import {
   on,
   props,
 } from '@ngrx/store';
-import { State } from './index';
+
 export const AUTH_KEY = 'auth';
 const actionType = '[AUTH]';
 const AUTH_LOGIN = `${actionType} login`;
@@ -48,7 +48,9 @@ const selectAuth = createFeatureSelector<AuthState>(AUTH_KEY);
 export const selectUserName = createSelector(selectAuth, state => state.userName);
 export const selectIsAuth = createSelector(selectAuth, state => state.isAuth);
 
-export function clearStateMetaReducer<State extends {}>(reducer: ActionReducer<State>): ActionReducer<State> {
+export function clearStateMetaReducer<State extends Record<string, any>>(
+  reducer: ActionReducer<State>
+): ActionReducer<State> {
   return function clearStateFn(state?: State, action?: Action) {
     if (action?.type === AUTH_LOGOUT) {
       state = {} as State;

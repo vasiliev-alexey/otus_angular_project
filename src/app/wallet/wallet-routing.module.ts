@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailsComponent } from './main/detail/details.component';
-import { WalletComponent } from './main/wallet/wallet.component';
-import { PricesComponent } from './main/prices/prices.component';
-import { SettingsComponent } from './main/settings/settings.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { AuthGuard } from './services/AuthGuard';
-import { MainComponent } from './main/main.component';
+import { DetailsComponent } from './components/main/detail/details.component';
+import { WalletComponent } from './components/main/wallet/wallet.component';
+import { PricesComponent } from './components/main/prices/prices.component';
+import { SettingsComponent } from './components/main/settings/settings.component';
+
+import { MainComponent } from './components/main/main.component';
+import { AuthGuard } from '../auth/services/AuthGuard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
