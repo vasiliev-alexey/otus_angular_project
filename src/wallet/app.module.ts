@@ -9,16 +9,18 @@ import { EffectsModule } from '@ngrx/effects';
 // import { effects } from '../app/wallet/store';
 import { AuthModule } from '../app/auth/auth.module';
 import { WalletModule } from '../app/wallet/wallet.module';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {BrowserModule} from "@angular/platform-browser";
-import {SettingsModule} from "../app/settings/settings.module";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { SettingsModule } from '../app/settings/settings.module';
+import { CoreModule } from '../app/@core/core.module';
 
 @NgModule({
   declarations: [],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule,
-
-    AuthModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CoreModule,
     EffectsModule.forRoot([]),
     WalletModule,
     StoreModule.forRoot(),

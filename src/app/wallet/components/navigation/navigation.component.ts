@@ -2,9 +2,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { tuiIconGridLarge, tuiIconSettingsLarge } from '@taiga-ui/icons';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectUserName } from '../../../auth/store/auth.reducer';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../../../@core/services/auth.service';
 
 @Component({
   selector: 'wallet-navigation',
@@ -15,7 +15,8 @@ export class NavigationComponent implements OnInit {
   private router = inject(Router);
 
   private store = inject(Store);
-  readonly isAuth = new BehaviorSubject(false);
+  private authService = inject(AuthService);
+  readonly isAuth = new BehaviorSubject(false); // = this.authService.isAuthenticated();
 
   currentSelectedItem = '';
 
@@ -28,12 +29,11 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('on init');
-    this.store
-      .select(selectUserName)
+    this.authService
+      .isAuthenticated()
       .pipe(
         tap(() => console.log('rrrrrrr')),
-        map(user => this.isAuth.next(user == 'alex'))
+        map(val => this.isAuth.next(val))
       )
       .subscribe();
   }

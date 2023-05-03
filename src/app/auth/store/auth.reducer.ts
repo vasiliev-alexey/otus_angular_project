@@ -5,6 +5,7 @@ import {
   createFeatureSelector,
   createReducer,
   createSelector,
+  MetaReducer,
   on,
   props,
 } from '@ngrx/store';
@@ -19,12 +20,12 @@ export const logout = createAction(AUTH_LOGOUT);
 export interface AuthState {
   userName?: string;
   isAuth: boolean;
-  userId?: string
+  userId?: string;
 }
 
 const initialState: AuthState = {
-  isAuth: true,
-  userId: "5gVY8Afa3uXMXyp3NkJTZHf0Xyq2"
+  isAuth: false,
+  userId: '5gVY8Afa3uXMXyp3NkJTZHf0Xyq2',
 };
 
 export const authReducer = createReducer(
@@ -37,18 +38,12 @@ export const authReducer = createReducer(
       userName: action.userName,
     })
   )
-  // on(
-  //   logout,
-  //   (state, action): AuthState => ({
-  //     isAuth: false,
-  //     userName: undefined,
-  //   })
-  // )
 );
 
 const selectAuth = createFeatureSelector<AuthState>(AUTH_KEY);
 export const selectUserName = createSelector(selectAuth, state => state.userName);
 export const selectIsAuth = createSelector(selectAuth, state => state.isAuth);
+export const selectUserId = createSelector(selectAuth, state => state.userId);
 
 export function clearStateMetaReducer<State extends Record<string, any>>(
   reducer: ActionReducer<State>

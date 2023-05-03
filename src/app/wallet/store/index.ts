@@ -17,4 +17,4 @@ export const reducers: ActionReducerMap<State> = {
   // [AUTH_KEY]: authReducer,
 };
 
-export const metaReducers: MetaReducer<State>[] = [clearStateMetaReducer];
+export const authMetaReducers: MetaReducer<State>[] = [clearStateMetaReducer];
