@@ -20,9 +20,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MainComponent } from './components/main/main.component';
 import { DetailsComponent } from './components/main/detail/details.component';
 import { PricesComponent } from './components/main/prices/prices.component';
-import { SettingsComponent } from './components/main/settings/settings.component';
 import { StoreModule } from '@ngrx/store';
 import { currencyReducer } from './store/currency.reducer';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SettingsModule} from "../settings/settings.module";
 
 @NgModule({
   declarations: [
@@ -33,9 +34,9 @@ import { currencyReducer } from './store/currency.reducer';
     MainComponent,
     DetailsComponent,
     PricesComponent,
-    SettingsComponent,
   ],
   imports: [
+    FormsModule, ReactiveFormsModule,     SettingsModule,
     CommonModule,
     WalletRoutingModule,
     BrowserModule,

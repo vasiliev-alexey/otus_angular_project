@@ -1,0 +1,46 @@
+<!--<form [formGroup]="settingsForm" class="mb-1" (ngSubmit)="saveSettings($event)">-->
+<p>Настройки для пользователя</p>
+<form [formGroup]="settingsForm" class="mb-1" (ngSubmit)="saveSettings($event)">
+
+  <div class="tui-form__row mb-1">
+    <tui-select formControlName="currencyCode">
+      Currency
+      <input
+        tuiTextfield
+        placeholder="Choose your Currency"
+      />
+      <tui-data-list-wrapper
+        *tuiDataList
+        [items]="currenciesList"
+      ></tui-data-list-wrapper>
+    </tui-select>
+  </div>
+
+  <div class="tui-form__row mb-1">
+    <tui-select formControlName="locationCode">
+      Timezone
+      <input
+        tuiTextfield
+        placeholder="Choose your Timezone"
+      />
+      <tui-data-list-wrapper
+        *tuiDataList
+        [items]="loc"
+      ></tui-data-list-wrapper>
+    </tui-select>
+
+
+  </div>
+  <div class="tui-form__row mb-3" >
+    <button
+      tuiButton
+      type="submit"
+      appearance="primary"
+      class="tui-space_right-3 tui-space_bottom-3"
+      (click)="submitForm($event)"
+    >
+      Save
+    </button>
+  </div>
+
+</form>

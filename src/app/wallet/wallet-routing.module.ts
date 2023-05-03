@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './components/main/detail/details.component';
 import { WalletComponent } from './components/main/wallet/wallet.component';
 import { PricesComponent } from './components/main/prices/prices.component';
-import { SettingsComponent } from './components/main/settings/settings.component';
+import { SettingsComponent } from '../settings/components/settings/settings.component';
 
 import { MainComponent } from './components/main/main.component';
-import { AuthGuard } from '../auth/services/AuthGuard';
+import { AuthGuard } from '../auth/services/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },

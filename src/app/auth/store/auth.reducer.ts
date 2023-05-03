@@ -19,10 +19,12 @@ export const logout = createAction(AUTH_LOGOUT);
 export interface AuthState {
   userName?: string;
   isAuth: boolean;
+  userId?: string
 }
 
 const initialState: AuthState = {
-  isAuth: false,
+  isAuth: true,
+  userId: "5gVY8Afa3uXMXyp3NkJTZHf0Xyq2"
 };
 
 export const authReducer = createReducer(

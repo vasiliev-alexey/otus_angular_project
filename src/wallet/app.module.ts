@@ -9,17 +9,18 @@ import { EffectsModule } from '@ngrx/effects';
 // import { effects } from '../app/wallet/store';
 import { AuthModule } from '../app/auth/auth.module';
 import { WalletModule } from '../app/wallet/wallet.module';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserModule} from "@angular/platform-browser";
+import {SettingsModule} from "../app/settings/settings.module";
 
 @NgModule({
   declarations: [],
   imports: [
-    AuthModule,
-    EffectsModule.forRoot(),
-    WalletModule,
-    // StoreModule.forRoot(reducers, {
-    //   metaReducers,
-    // }),
+    BrowserModule, FormsModule, ReactiveFormsModule,
 
+    AuthModule,
+    EffectsModule.forRoot([]),
+    WalletModule,
     StoreModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
