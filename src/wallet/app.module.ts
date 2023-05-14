@@ -11,8 +11,11 @@ import { AuthModule } from '../app/auth/auth.module';
 import { WalletModule } from '../app/wallet/wallet.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { SettingsModule } from '../app/settings/settings.module';
 import { CoreModule } from '../app/@core/core.module';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [],
@@ -23,6 +26,10 @@ import { CoreModule } from '../app/@core/core.module';
     CoreModule,
     EffectsModule.forRoot([]),
     WalletModule,
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+
     StoreModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],

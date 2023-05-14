@@ -1,0 +1,27 @@
+.table {
+  width: 100%;
+}
+.columns {
+  width: 10.625rem;
+}
+
+.tui-table {
+  width: 100%;
+}
+
+.second {
+  left: 11.25rem;
+}
+
+.box {
+  overflow: auto;
+}
+
+
+thead, tbody { display: block; }
+
+tbody {
+height: 35rem;
+  overflow-y: auto;    /* Trigger vertical scroll    */
+  //overflow-x: hidden;  /* Hide the horizontal scroll */
+}

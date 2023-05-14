@@ -19,24 +19,19 @@ import { LogoComponent } from './components/header/logo/logo.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { MainComponent } from './components/main/main.component';
 import { DetailsComponent } from './components/main/detail/details.component';
-import { PricesComponent } from './components/main/prices/prices.component';
 import { StoreModule } from '@ngrx/store';
 import { currencyReducer } from './store/currency.reducer';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {SettingsModule} from "../settings/settings.module";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SettingsModule } from '../settings/settings.module';
+import { PricesModule } from '../prices/prices.module';
+import { APP_CONFIG, Configuration } from '../config/appConfig';
 
 @NgModule({
-  declarations: [
-    WalletComponent,
-    HeaderComponent,
-    LogoComponent,
-    NavigationComponent,
-    MainComponent,
-    DetailsComponent,
-    PricesComponent,
-  ],
+  declarations: [WalletComponent, HeaderComponent, LogoComponent, NavigationComponent, MainComponent, DetailsComponent],
   imports: [
-    FormsModule, ReactiveFormsModule,     SettingsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SettingsModule,
     CommonModule,
     WalletRoutingModule,
     BrowserModule,
@@ -49,7 +44,9 @@ import {SettingsModule} from "../settings/settings.module";
     TuiSvgModule,
     TuiHostedDropdownModule,
     TuiDataListModule,
+    PricesModule,
     StoreModule.forFeature('currency', currencyReducer),
   ],
+  providers: [{ provide: APP_CONFIG, useValue: Configuration }],
 })
 export class WalletModule {}

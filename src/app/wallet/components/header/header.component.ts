@@ -7,6 +7,8 @@ import { selectCurrency, setCurrency } from '../../store/currency.reducer';
 import { tuiIconDollarSignLarge } from '@taiga-ui/icons';
 import { login, logout } from '../../../auth/store/auth.reducer';
 
+const COMPONENTS_PATH = 'components';
+
 @Component({
   selector: 'wallet-header',
   templateUrl: './header.component.html',
@@ -32,16 +34,16 @@ export class HeaderComponent {
       label: `Currencies`,
       items: [
         {
-          label: 'Dollar',
-          routerLink: '/components/input',
+          label: 'USD',
+          routerLink: `/${COMPONENTS_PATH}/input`,
         },
         {
           label: 'Euro',
-          routerLink: '/components/select',
+          routerLink: `/${COMPONENTS_PATH}/select`,
         },
         {
           label: 'Ruble',
-          routerLink: '/components/data-list',
+          routerLink: `/${COMPONENTS_PATH}/data-list`,
         },
       ],
     },

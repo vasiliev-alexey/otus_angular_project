@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, concatMap, EMPTY, exhaustMap, of } from 'rxjs';
 import { map, mergeMap, switchMap, tap } from 'rxjs/operators';
-import { savedSettings, saveSettings } from './settings.actions';
+import { loadedSettings, loadSettings, savedSettings, saveSettings } from './settings.actions';
 import { State, Store } from '@ngrx/store';
 import { selectIsAuth } from '../../auth/store/auth.reducer';
 import { AuthService } from '../../@core/services/auth.service';
@@ -16,14 +16,15 @@ export class SettingsEffects {
   private router = inject(Router);
 
   private settingsService = inject(SettingService);
-  loadData$ = createEffect(() => {
+
+  saveSettings = createEffect(() => {
     return this.actions$.pipe(
       ofType(saveSettings),
       switchMap(v =>
         this.authService.userId().pipe(
           tap(val => console.log('T', val, v.currencyCode)),
           exhaustMap(vr =>
-            this.settingsService.saveSettings(vr).pipe(
+            this.settingsService.saveSettings(v).pipe(
               map(() => {
                 return savedSettings();
               }),
@@ -35,12 +36,32 @@ export class SettingsEffects {
     );
   });
 
+  loadSettings = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(loadSettings),
+      switchMap(v =>
+        this.authService.userId().pipe(
+          //   tap(val => console.log('T', val, v.currencyCode)),
+          exhaustMap(vr =>
+            this.settingsService.loadSettings().pipe(
+              map(data => {
+                console.log('loaded data', data);
+                return loadedSettings(data);
+              }),
+              catchError(() => of({ type: '[ERRR] Loaded Error' }))
+            )
+          )
+        )
+      )
+    );
+  });
+
   returnToHome$ = createEffect(
     () =>
-      this.actions$.pipe(
+      { return this.actions$.pipe(
         ofType(savedSettings),
         tap(() => this.router.navigate(['/']))
-      ),
+      ) },
     { dispatch: false }
     // FeatureActions.actionOne is not dispatched
   );

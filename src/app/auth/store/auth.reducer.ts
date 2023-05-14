@@ -24,7 +24,7 @@ export interface AuthState {
 }
 
 const initialState: AuthState = {
-  isAuth: false,
+  isAuth: true,
   userId: '5gVY8Afa3uXMXyp3NkJTZHf0Xyq2',
 };
 
