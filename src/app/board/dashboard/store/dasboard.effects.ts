@@ -12,6 +12,7 @@ import {
   loadedPortfolio,
   loadLastTransactions,
   loadPortfolio,
+  sellCoins,
 } from './dashboard.actions';
 import { DashboardTransactionService } from '../services/dashboard.transaction.service';
 import { DashboardPortfolioService } from '../services/dashboard.portfolio.service';
@@ -25,7 +26,7 @@ export class DashboardEffects {
 
   buyCoins = createEffect(() => {
     return this.actions$.pipe(
-      ofType(buyCoins),
+      ofType(buyCoins, sellCoins),
       switchMap(v =>
         this.authService.userId().pipe(
           tap(val => console.log('T', val, v.coinCode)),

@@ -4,6 +4,7 @@
   <thead tuiThead>
     <tr>
       <th tuiTh>Coin</th>
+      <th tuiTh>CoinCode</th>
       <th tuiTh>Amount</th>
       <th tuiTh>Transaction date</th>
       <th tuiTh>Transaction type</th>
@@ -13,8 +14,17 @@
   <tbody>
     <tr *ngFor="let transaction of transactionList | async" class="tui-table__tr tui-table__tr_border_none">
       <td class="tui-table__td tui-table__td_first">
+        <tui-avatar
+          class="small"
+          size="xxs"
+          [rounded]="true"
+          [avatarUrl]="getIconUrl(transaction.coinCode)"></tui-avatar>
+      </td>
+
+      <td class="tui-table__td tui-table__td_first">
         {{ transaction.coinCode }}
       </td>
+
       <td class="tui-table__td tui-table__td_first">
         <tui-money currency="840" [value]="transaction.amount" [colored]="false"></tui-money>
       </td>

@@ -1,4 +1,4 @@
-export interface BuyParams {
+export interface MarketParams {
   coinCode: string;
   amount: number;
   cardNumber: string;

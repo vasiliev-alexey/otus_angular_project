@@ -1,20 +1,20 @@
-import { inject, Injectable } from '@angular/core';
-import { BuyParams } from '../store/dashboard.model';
-import { EMPTY, from, Observable, of, switchMap } from 'rxjs';
-import { AuthService } from '../../../@core/services/auth.service';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { inject, Injectable } from "@angular/core";
+import { MarketParams } from "../store/dashboard.model";
+import { from, Observable, switchMap } from "rxjs";
+import { AuthService } from "../../../@core/services/auth.service";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root"
 })
 export class DashboardBuyService {
   private authService = inject(AuthService);
   private firestore: AngularFirestore = inject(AngularFirestore);
 
-  buyCoin(v: BuyParams): Observable<BuyParams | undefined> {
+  buyCoin(v: MarketParams): Observable<MarketParams | undefined> {
     return this.authService.userId().pipe(
       switchMap(userId => {
-        const colRef = this.firestore.collection('transactions');
+        const colRef = this.firestore.collection("transactions");
         return from(
           colRef.add({
             userId,
@@ -22,9 +22,9 @@ export class DashboardBuyService {
             amount: v.amount,
             cardNumber: v.cardNumber,
             created: Date.now(),
-            transactionType: v.transactionType,
+            transactionType: v.transactionType
           })
-        ).pipe(switchMap(docRef => colRef.doc<BuyParams>(docRef.id).valueChanges()));
+        ).pipe(switchMap(docRef => colRef.doc<MarketParams>(docRef.id).valueChanges()));
       })
     );
   }

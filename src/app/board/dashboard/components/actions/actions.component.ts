@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

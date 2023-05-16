@@ -29,10 +29,10 @@ export class SettingsComponent implements OnInit {
   settings: Settings = {};
   currenciesList = ['USD', 'EURO', 'RUB'];
 
-  saveSettings($event: Event) {
+  saveSettings() {
     console.log('save settings dispatch:');
 
-    this.store.dispatch(saveSettings({ currencyCode: this.settingsForm.controls.currencyCode.value! }));
+    this.store.dispatch(saveSettings({ currencyCode: this.settingsForm.controls.currencyCode.value|| '' }));
   }
 
   ngOnInit(): void {
@@ -48,11 +48,11 @@ export class SettingsComponent implements OnInit {
     // this.settingsForm.controls.locationCode.setValue('Africa/Abidjan');
   }
 
-  submitForm($event: MouseEvent) {
+  submitForm() {
     console.log('submit');
     this.store.dispatch(
       saveSettings({
-        currencyCode: this.settingsForm.controls.currencyCode.value!,
+        currencyCode: this.settingsForm.controls.currencyCode.value || '',
         locationCode: this.settingsForm.controls.locationCode.value || '',
       })
     );

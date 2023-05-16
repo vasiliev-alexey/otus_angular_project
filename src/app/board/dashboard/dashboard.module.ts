@@ -11,6 +11,7 @@ import {
   TuiLinkModule,
   TuiSvgModule,
   TuiTextfieldControllerModule,
+  TuiTooltipModule,
 } from '@taiga-ui/core';
 import {
   TuiCardModule,
@@ -92,6 +93,7 @@ import { DashboardUpDownPipe } from './pipes/dashboard.updown.pipe';
     StoreModule.forFeature(DASHBOARD_KEY, dashboardReducer),
     TuiFormatDatePipeModule,
     TuiBadgeModule,
+    TuiTooltipModule,
   ],
   providers: [DashboardBuyService],
 })

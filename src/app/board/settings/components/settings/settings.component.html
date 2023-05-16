@@ -1,6 +1,6 @@
 <!--<form [formGroup]="settingsForm" class="mb-1" (ngSubmit)="saveSettings($event)">-->
 <p>Настройки для пользователя</p>
-<form [formGroup]="settingsForm" class="mb-1" (ngSubmit)="saveSettings($event)">
+<form [formGroup]="settingsForm" class="mb-1" (ngSubmit)="saveSettings()">
   <div class="tui-form__row mb-1">
     <tui-select formControlName="currencyCode">
       Currency
@@ -22,7 +22,7 @@
       type="submit"
       appearance="primary"
       class="tui-space_right-3 tui-space_bottom-3"
-      (click)="submitForm($event)">
+      (click)="submitForm()">
       Save
     </button>
   </div>
