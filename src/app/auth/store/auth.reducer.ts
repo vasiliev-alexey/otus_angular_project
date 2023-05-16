@@ -44,7 +44,7 @@ export const selectUserName = createSelector(selectAuth, state => state.userName
 export const selectIsAuth = createSelector(selectAuth, state => state.isAuth);
 export const selectUserId = createSelector(selectAuth, state => state.userId);
 
-export function clearStateMetaReducer<State extends Record<string, any>>(
+export function clearStateMetaReducer<State extends Record<string, unknown>>(
   reducer: ActionReducer<State>
 ): ActionReducer<State> {
   return function clearStateFn(state?: State, action?: Action) {

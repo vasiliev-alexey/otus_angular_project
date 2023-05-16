@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadedLastTransactions, loadLastTransactions, loadPortfolio } from './dashboard.actions';
-import { Portfolio, Transactions, TransactionType } from './dashboard.model';
+import { loadedLastTransactions, loadedPortfolio } from './dashboard.actions';
+import { Portfolio, Transactions } from './dashboard.model';
 
 export const DASHBOARD_KEY = 'dashboard';
 
@@ -22,17 +22,10 @@ export const dashboardReducer = createReducer(
       lastTransactions: action.transactions,
     };
   }),
-
-  on(loadPortfolio, (state, action): DashBoardState => {
-    const portList: Portfolio[] = [
-      { coinCode: 'BTC', amount: 100, changePercent: -2 },
-      { coinCode: 'DOGI', amount: 20, changePercent: 2 },
-      { coinCode: 'USD', amount: 1000, changePercent: 0 },
-    ];
-
+  on(loadedPortfolio, (state, action): DashBoardState => {
     return {
       ...state,
-      portfolioList: portList,
+      portfolioList: action.portFolio,
     };
   })
 );

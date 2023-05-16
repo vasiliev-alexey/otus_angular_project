@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PriceListComponent } from './components/price-list/price-list/price-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TuiAvatarModule, TuiInputComponent, TuiInputModule } from '@taiga-ui/kit';
+import { TuiAvatarModule, TuiInputModule } from '@taiga-ui/kit';
 import { TuiTablePaginationModule } from '@taiga-ui/addon-table';
 import { TuiMoneyModule } from '@taiga-ui/addon-commerce';
 import { TuiLoaderModule, TuiPrimitiveTextfieldModule } from '@taiga-ui/core';
 import { EffectsModule } from '@ngrx/effects';
-import { SettingsEffects } from '../settings/store/settings.effects';
+
 import { StoreModule } from '@ngrx/store';
-import { settingsReducer } from '../settings/store/settings.reducer';
+
 import { priceReducer } from './store/prices.reducers';
 import { PricesEffects } from './store/prices.effects';
 import { TuiOverscrollModule } from '@taiga-ui/cdk';

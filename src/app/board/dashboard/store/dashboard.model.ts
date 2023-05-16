@@ -26,3 +26,6 @@ export interface Portfolio {
 export interface TransactionList {
   transactions: Transactions[];
 }
+export interface PortfolioList {
+  portFolio: Portfolio[];
+}

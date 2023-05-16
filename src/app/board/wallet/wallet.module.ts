@@ -9,7 +9,6 @@ import { TuiButtonModule } from '@taiga-ui/core';
 import { TuiMoneyModule } from '@taiga-ui/addon-commerce';
 import { TuiOverscrollModule } from '@taiga-ui/cdk';
 import { TuiTablePaginationModule } from '@taiga-ui/addon-table';
-import { DashboardModule } from '../dashboard/dashboard.module';
 
 @NgModule({
   declarations: [WalletComponent],

@@ -34,7 +34,6 @@ export class SettingsEffects {
       ofType(loadSettings),
       switchMap(v =>
         this.authService.userId().pipe(
-          //   tap(val => console.log('T', val, v.currencyCode)),
           exhaustMap(_vr =>
             this.settingsService.loadSettings().pipe(
               map(data => {
@@ -57,7 +56,6 @@ export class SettingsEffects {
       );
     },
     { dispatch: false }
-    // FeatureActions.actionOne is not dispatched
   );
 
   constructor(private actions$: Actions) {}

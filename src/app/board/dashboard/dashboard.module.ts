@@ -48,7 +48,6 @@ import { DashboardBuyService } from './services/dashboard.buy.service';
 import { TuiTableModule } from '@taiga-ui/addon-table';
 import { DashboardUpDownPipe } from './pipes/dashboard.updown.pipe';
 
-
 @NgModule({
   declarations: [
     DashboardComponent,

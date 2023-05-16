@@ -11,7 +11,7 @@ export class WalletEffects {
       ofType(fetchData),
       mergeMap(() =>
         of([]).pipe(
-          map(movies => walletDataLoaded({ code: 'Loaded' })),
+          map(_ => walletDataLoaded({ code: 'Loaded' })),
           catchError(() => of({ type: '[ERRR] Loaded Error' }))
         )
       )

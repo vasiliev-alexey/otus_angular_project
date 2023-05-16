@@ -1,5 +1,4 @@
 import { createReducer, on } from '@ngrx/store';
-import { Price } from './prices.models';
 import { loadedPrices } from './prices.actions';
 import { initialState, PricesState } from './prices.state';
 

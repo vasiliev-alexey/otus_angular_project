@@ -1,4 +1,4 @@
-import { createAction, createFeatureSelector, createReducer, createSelector, on, props } from '@ngrx/store';
+import { createAction, createReducer, on, props } from '@ngrx/store';
 import { initialState } from './wallet.state';
 
 import { WalletState } from './wallet.state';
@@ -16,7 +16,7 @@ export const walletReducer = createReducer(
   initialState,
   on(
     setData,
-    (state, action): WalletState => ({
+    (state): WalletState => ({
       ...state,
     })
   )

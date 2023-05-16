@@ -21,11 +21,9 @@ import { PricesModule } from '../board/prices/prices.module';
 import { WalletModule as WM } from '../board/wallet/wallet.module';
 import { APP_CONFIG, Configuration } from '../config/appConfig';
 import { NavigationModule } from '../navigation/navigation.module';
-
 import { HeaderModule } from '../header/header.module';
 import { MainModule } from '../board/main/main.module';
 import { DashboardModule } from '../board/dashboard/dashboard.module';
-import { TuiTableModule } from '@taiga-ui/addon-table';
 
 @NgModule({
   declarations: [LandingComponent],

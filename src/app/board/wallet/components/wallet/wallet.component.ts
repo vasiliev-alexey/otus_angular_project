@@ -21,5 +21,7 @@ export class WalletComponent implements OnInit {
     this.store.dispatch(fetchData({ code: '1111111111' }));
   }
 
-  onChange($event: TuiTablePagination) {}
+  onChange($event: TuiTablePagination) {
+    console.log($event);
+  }
 }

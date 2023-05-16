@@ -4,16 +4,24 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthService } from '../../../@core/services/auth.service';
 import { DashboardBuyService } from '../services/dashboard.buy.service';
 import { map, switchMap, tap } from 'rxjs/operators';
-import { catchError, EMPTY, exhaustMap, of } from 'rxjs';
-import { buyCoins, coinsBought, loadedLastTransactions, loadLastTransactions } from './dashboard.actions';
+import { catchError, exhaustMap, of } from 'rxjs';
+import {
+  buyCoins,
+  coinsBought,
+  loadedLastTransactions,
+  loadedPortfolio,
+  loadLastTransactions,
+  loadPortfolio,
+} from './dashboard.actions';
 import { DashboardTransactionService } from '../services/dashboard.transaction.service';
-import { TransactionList } from './dashboard.model';
+import { DashboardPortfolioService } from '../services/dashboard.portfolio.service';
 
 @Injectable()
 export class DashboardEffects {
   private authService = inject(AuthService);
   private dashboardBuyService = inject(DashboardBuyService);
   private dashboardTransactionService = inject(DashboardTransactionService);
+  private dashboardPortfolioService = inject(DashboardPortfolioService);
 
   buyCoins = createEffect(() => {
     return this.actions$.pipe(
@@ -43,6 +51,24 @@ export class DashboardEffects {
             this.dashboardTransactionService.loadLastTransactions(vr).pipe(
               map(p => {
                 return loadedLastTransactions({ transactions: p });
+              }),
+              catchError(() => of({ type: '[ERRR] Loaded Error' }))
+            )
+          )
+        )
+      )
+    );
+  });
+
+  loadUserPortfolio = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(loadPortfolio),
+      switchMap(_ =>
+        this.authService.userId().pipe(
+          exhaustMap(vr =>
+            this.dashboardPortfolioService.loadUserPortfolio(vr).pipe(
+              map(p => {
+                return loadedPortfolio({ portFolio: p });
               }),
               catchError(() => of({ type: '[ERRR] Loaded Error' }))
             )
