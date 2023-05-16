@@ -45,6 +45,7 @@ import { DASHBOARD_KEY, dashboardReducer } from './store/dashboard.reducer';
 import { DashboardBuyService } from './services/dashboard.buy.service';
 import { TuiTableModule } from "@taiga-ui/addon-table";
 
+
 @NgModule({
   declarations: [
     DashboardComponent,

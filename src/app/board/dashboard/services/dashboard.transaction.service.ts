@@ -4,24 +4,23 @@ import { Transactions, TransactionType } from "../store/dashboard.model";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { map } from "rxjs/operators";
 import { Settings } from "../../settings/store/settings.model";
+import { and, limit, orderBy, query, where } from "@angular/fire/firestore";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DashboardTransactionService {
 
   private firestore: AngularFirestore = inject(AngularFirestore);
 
   loadLastTransactions(userId?: string) {
+    return this.firestore
+      .collection("transactions", ref =>
+        ref.where( "userId", "==", userId) .limit(5)
+      )
 
-
-
-        return this.firestore
-          .collection('transactions', ref => ref.where('userId', '==', userId))
-          .valueChanges()
-          .pipe(map(val => (val.length > 0 ? (val as Transactions[]) : ( [] as Transactions[]))));
-
-
+      .valueChanges()
+      .pipe(map(val => (val.length > 0 ? (val as Transactions[]) : ([] as Transactions[]))));
 
 
     //     const trans: Transactions[] = [];

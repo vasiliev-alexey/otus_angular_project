@@ -22,6 +22,7 @@ export class DashboardBuyService {
             amount: v.amount,
             cardNumber: v.cardNumber,
             created: Date.now(),
+            transactionType: v.transactionType
           })
         ).pipe(switchMap(docRef => colRef.doc<BuyParams>(docRef.id).valueChanges()));
       })

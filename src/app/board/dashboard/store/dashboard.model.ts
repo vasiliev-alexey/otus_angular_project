@@ -2,14 +2,16 @@ export interface BuyParams {
   coinCode: string;
   amount: number;
   cardNumber: string;
+  transactionType: TransactionType
 }
 
-export   enum  TransactionType {
-  BUY= 0,
-  SELL= 1
+export enum TransactionType {
+  BUY = "Buy",
+  SELL = "Sell",
+  CONVERT = "Convert"
 }
 
-export interface  Transactions {
+export interface Transactions {
   created: number,
   amount: number,
   coinCode: string,
@@ -17,6 +19,6 @@ export interface  Transactions {
 }
 
 
-export interface TransactionList  {
-  transactions: Transactions[]
+export interface TransactionList {
+  transactions: Transactions[];
 }

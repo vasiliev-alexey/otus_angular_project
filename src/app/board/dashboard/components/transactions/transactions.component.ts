@@ -4,6 +4,7 @@ import { loadLastTransactions } from "../../store/dashboard.actions";
 import { selectPrices } from "../../../prices/store/prices.selectors";
 import { map } from "rxjs/operators";
 import { selectLastTransactions } from "../../store/dashboard.selectors";
+import { TransactionType } from "../../store/dashboard.model";
 
 @Component({
   selector: "wallet-transactions",
@@ -19,4 +20,6 @@ export class TransactionsComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(loadLastTransactions());
   }
+
+  protected readonly TransactionType = TransactionType;
 }
