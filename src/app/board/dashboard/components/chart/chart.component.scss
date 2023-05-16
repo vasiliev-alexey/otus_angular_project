@@ -1,5 +1,14 @@
 .axes {
-  height: 12.5rem;
-  width: 25rem;
+  height: 20em;
+  width: 100%;
   color: #bc71c9;
+  color: red;
 }
+
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

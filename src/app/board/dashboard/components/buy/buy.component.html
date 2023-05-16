@@ -1,0 +1,82 @@
+<tui-money
+  [value]="150.5"
+  [colored]="true"
+></tui-money>
+<tui-avatar
+  new
+  text="alex inkin"
+  size="s"
+  avatarUrl="tuiIconRepeatLarge"
+  class="tui-space_vertical-1"
+></tui-avatar>
+
+<hr>
+
+
+
+
+<form
+  class="b-form"
+  [formGroup]="testForm"
+>
+
+  <p>
+    <tui-input
+      formControlName="testValue1"
+
+    >
+      Document number
+      <input
+        tuiTextfield
+        inputmode="numeric"
+      />
+
+      <label>You can buy
+        <tui-money
+          [value]="150.5"
+          [colored]="true"
+        ></tui-money>
+      </label>
+
+
+    </tui-input>
+
+  <p>
+    <tui-input
+      formControlName="testValue1"
+
+    >
+      Document number
+      <input
+        tuiTextfield
+        inputmode="numeric"
+      />
+    </tui-input>
+  </p>
+  <p>
+    <tui-input
+      formControlName="testValue2"
+
+    >
+      Pay With
+      <input
+        tuiTextfield
+        inputmode="numeric"
+      />
+    </tui-input>
+  </p>
+</form>
+
+
+<div class="tui-form__buttons">
+  <button
+    tuiButton
+    appearance="primary"
+    size="l"
+   shape="square"
+    type="button"
+    class="tui-form__button fill"
+  >
+    Buy
+  </button>
+</div>

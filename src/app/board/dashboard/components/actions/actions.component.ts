@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject, Inject } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'wallet-actions',
@@ -9,8 +10,14 @@ import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
 export class ActionsComponent {
   activeItemIndex = 0;
 
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
 
   onClick(item: string): void {
+
+    this.router.navigate([item], { relativeTo: this.route });
+
 
   }
 }

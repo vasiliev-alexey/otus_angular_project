@@ -8,6 +8,9 @@ import { AuthGuard } from '../auth/services/auth.guard';
 import { PriceListComponent } from '../board/prices/components/price-list/price-list/price-list.component';
 import { DashboardComponent } from '../board/dashboard/components/dashboard/dashboard.component';
 import { MainComponent } from '../board/main/components/main/main.component';
+import { BuyComponent } from "../board/dashboard/components/buy/buy.component";
+import { SellComponent } from "../board/dashboard/components/sell/sell.component";
+import { ConvertComponent } from "../board/dashboard/components/convert/convert.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -21,6 +24,13 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+        children: [
+          {path: '' , component: BuyComponent},
+          {path: 'buy' , component: BuyComponent},
+          {path: 'sell' , component: SellComponent},
+          {path: 'convert' , component: ConvertComponent}
+
+        ]
       },
       {
         path: 'main',
