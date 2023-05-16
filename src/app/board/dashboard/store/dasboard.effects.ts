@@ -5,15 +5,15 @@ import { AuthService } from '../../../@core/services/auth.service';
 import { DashboardBuyService } from '../services/dashboard.buy.service';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { catchError, EMPTY, exhaustMap, of } from 'rxjs';
-import { buyCoins, coinsBought, loadedLastTransactions, loadLastTransactions } from "./dashboard.actions";
-import { DashboardTransactionService } from "../services/dashboard.transaction.service";
-import { TransactionList } from "./dashboard.model";
+import { buyCoins, coinsBought, loadedLastTransactions, loadLastTransactions } from './dashboard.actions';
+import { DashboardTransactionService } from '../services/dashboard.transaction.service';
+import { TransactionList } from './dashboard.model';
 
 @Injectable()
 export class DashboardEffects {
   private authService = inject(AuthService);
   private dashboardBuyService = inject(DashboardBuyService);
-  private dashboardTransactionService = inject(DashboardTransactionService)
+  private dashboardTransactionService = inject(DashboardTransactionService);
 
   buyCoins = createEffect(() => {
     return this.actions$.pipe(
@@ -34,17 +34,15 @@ export class DashboardEffects {
     );
   });
 
-
   loadLastTransactions = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadLastTransactions),
       switchMap(v =>
         this.authService.userId().pipe(
-
           exhaustMap(vr =>
             this.dashboardTransactionService.loadLastTransactions(vr).pipe(
               map(p => {
-                return loadedLastTransactions( {transactions: p});
+                return loadedLastTransactions({ transactions: p });
               }),
               catchError(() => of({ type: '[ERRR] Loaded Error' }))
             )

@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {
   TuiButtonModule,
-  TuiDataListModule, TuiFormatDatePipeModule,
+  TuiDataListModule,
+  TuiFormatDatePipeModule,
   TuiHintModule,
   TuiHostedDropdownModule,
   TuiLabelModule,
   TuiLinkModule,
   TuiSvgModule,
-  TuiTextfieldControllerModule
-} from "@taiga-ui/core";
+  TuiTextfieldControllerModule,
+} from '@taiga-ui/core';
 import {
   TuiCardModule,
   TuiCurrencyPipeModule,
@@ -23,6 +24,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import {
   TextMaskModule,
   TuiAvatarModule,
+  TuiBadgeModule,
   TuiCheckboxModule,
   TuiInputCountModule,
   TuiInputModule,
@@ -43,7 +45,8 @@ import { StoreModule } from '@ngrx/store';
 import { DashboardEffects } from './store/dasboard.effects';
 import { DASHBOARD_KEY, dashboardReducer } from './store/dashboard.reducer';
 import { DashboardBuyService } from './services/dashboard.buy.service';
-import { TuiTableModule } from "@taiga-ui/addon-table";
+import { TuiTableModule } from '@taiga-ui/addon-table';
+import { DashboardUpDownPipe } from './pipes/dashboard.updown.pipe';
 
 
 @NgModule({
@@ -56,6 +59,7 @@ import { TuiTableModule } from "@taiga-ui/addon-table";
     BuyComponent,
     SellComponent,
     ConvertComponent,
+    DashboardUpDownPipe,
   ],
   imports: [
     CommonModule,
@@ -87,7 +91,8 @@ import { TuiTableModule } from "@taiga-ui/addon-table";
     TuiHintModule,
     EffectsModule.forFeature([DashboardEffects]),
     StoreModule.forFeature(DASHBOARD_KEY, dashboardReducer),
-    TuiFormatDatePipeModule
+    TuiFormatDatePipeModule,
+    TuiBadgeModule,
   ],
   providers: [DashboardBuyService],
 })

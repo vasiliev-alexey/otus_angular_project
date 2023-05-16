@@ -25,7 +25,7 @@ import { NavigationModule } from '../navigation/navigation.module';
 import { HeaderModule } from '../header/header.module';
 import { MainModule } from '../board/main/main.module';
 import { DashboardModule } from '../board/dashboard/dashboard.module';
-import { TuiTableModule } from "@taiga-ui/addon-table";
+import { TuiTableModule } from '@taiga-ui/addon-table';
 
 @NgModule({
   declarations: [LandingComponent],

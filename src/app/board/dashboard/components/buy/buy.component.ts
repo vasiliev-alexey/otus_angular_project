@@ -8,7 +8,7 @@ import { TuiHostedDropdownComponent } from '@taiga-ui/core';
 import { Store } from '@ngrx/store';
 import { buyCoins } from '../../store/dashboard.actions';
 import { TuiCard } from '@taiga-ui/addon-commerce/interfaces/card';
-import { TransactionType } from "../../store/dashboard.model";
+import { TransactionType } from '../../store/dashboard.model';
 
 interface BuyFormModel {
   amount: AbstractControl<number | null>;
@@ -92,7 +92,12 @@ export class BuyComponent {
     const controls = this.buyForm.controls;
     const card = controls.meta.value as unknown as TuiCard;
     this.store.dispatch(
-      buyCoins({ coinCode: this.selectedCurrency || '', amount: controls.amount.value || 0, cardNumber: card.card  , transactionType: TransactionType.BUY} )
+      buyCoins({
+        coinCode: this.selectedCurrency || '',
+        amount: controls.amount.value || 0,
+        cardNumber: card.card,
+        transactionType: TransactionType.BUY,
+      })
     );
   }
 }

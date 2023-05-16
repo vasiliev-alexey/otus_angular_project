@@ -1,19 +1,17 @@
-import { Component, inject, OnInit } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { loadLastTransactions } from "../../store/dashboard.actions";
-import { selectPrices } from "../../../prices/store/prices.selectors";
-import { map } from "rxjs/operators";
-import { selectLastTransactions } from "../../store/dashboard.selectors";
-import { TransactionType } from "../../store/dashboard.model";
+import { Component, inject, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadLastTransactions } from '../../store/dashboard.actions';
+import { selectPrices } from '../../../prices/store/prices.selectors';
+import { map } from 'rxjs/operators';
+import { selectLastTransactions } from '../../store/dashboard.selectors';
+import { TransactionType } from '../../store/dashboard.model';
 
 @Component({
-  selector: "wallet-transactions",
-  templateUrl: "./transactions.component.html",
-  styleUrls: ["./transactions.component.scss"]
+  selector: 'wallet-transactions',
+  templateUrl: './transactions.component.html',
+  styleUrls: ['./transactions.component.scss'],
 })
 export class TransactionsComponent implements OnInit {
-
-
   private store = inject(Store);
   readonly transactionList = this.store.select(selectLastTransactions).pipe(map(trans => trans));
 

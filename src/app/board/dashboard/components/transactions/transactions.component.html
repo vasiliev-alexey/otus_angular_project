@@ -1,31 +1,31 @@
 <p>Last Transactions</p>
 
-<table class="table">
+<table class="table" tuiTable>
   <thead tuiThead>
-  <tr>
-    <th tuiTh>Coin</th>
-    <th tuiTh>Amount</th>
-    <th tuiTh>Transaction date</th>
-    <th tuiTh>Transaction type</th>
-  </tr>
+    <tr>
+      <th tuiTh>Coin</th>
+      <th tuiTh>Amount</th>
+      <th tuiTh>Transaction date</th>
+      <th tuiTh>Transaction type</th>
+    </tr>
   </thead>
 
   <tbody>
-  <tr *ngFor="let transaction of transactionList | async" class="tui-table__tr tui-table__tr_border_none">
-    <td class="tui-table__td tui-table__td_first">
-      {{transaction.coinCode}}
-    </td>
-    <td class="tui-table__td tui-table__td_first">
-      <tui-money currency="840" [value]="transaction.amount" [colored]="false"></tui-money>
-    </td>
+    <tr *ngFor="let transaction of transactionList | async" class="tui-table__tr tui-table__tr_border_none">
+      <td class="tui-table__td tui-table__td_first">
+        {{ transaction.coinCode }}
+      </td>
+      <td class="tui-table__td tui-table__td_first">
+        <tui-money currency="840" [value]="transaction.amount" [colored]="false"></tui-money>
+      </td>
 
-    <td class="tui-table__td tui-table__td_first">
-      {{transaction.created | date: 'dd.MM.yyyy hh:mm:ss' }}
-    </td>
-    <td class="tui-table__td tui-table__td_first">
-      {{transaction.transactionType }}
-    </td>
+      <td class="tui-table__td tui-table__td_first">
+        {{ transaction.created | date : 'dd.MM.yyyy hh:mm:ss' }}
+      </td>
+      <td class="tui-table__td tui-table__td_first">
+        {{ transaction.transactionType }}
 
-  </tr>
+      </td>
+    </tr>
   </tbody>
 </table>

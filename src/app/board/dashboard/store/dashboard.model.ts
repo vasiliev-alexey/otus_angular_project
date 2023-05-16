@@ -2,23 +2,27 @@ export interface BuyParams {
   coinCode: string;
   amount: number;
   cardNumber: string;
-  transactionType: TransactionType
+  transactionType: TransactionType;
 }
 
 export enum TransactionType {
-  BUY = "Buy",
-  SELL = "Sell",
-  CONVERT = "Convert"
+  BUY = 'Buy',
+  SELL = 'Sell',
+  CONVERT = 'Convert',
 }
 
 export interface Transactions {
-  created: number,
-  amount: number,
-  coinCode: string,
-  transactionType: TransactionType
+  created: number;
+  amount: number;
+  coinCode: string;
+  transactionType: TransactionType;
 }
 
-
+export interface Portfolio {
+  amount: number;
+  coinCode: string;
+  changePercent: number;
+}
 export interface TransactionList {
   transactions: Transactions[];
 }
