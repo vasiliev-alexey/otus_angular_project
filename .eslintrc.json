@@ -30,6 +30,8 @@
             "prefix": "wallet",
             "style": "kebab-case"
           }
+        ], "@ngrx/prefer-inline-action-props": [
+          "off"
         ]
       }
     },

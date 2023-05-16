@@ -26,7 +26,7 @@ export class BuyComponent {
 
   private store = inject(Store);
 
-  selectedCurrency: string = '';
+  selectedCurrency = '';
 
   readonly paymentCards = [
     { card: '4321***1234', expire: '12/21', name: 'Salary' },
@@ -89,7 +89,7 @@ export class BuyComponent {
 
   buyCurrency() {
     const controls = this.buyForm.controls;
-    let card = controls.meta.value as unknown as TuiCard;
+    const card = controls.meta.value as unknown as TuiCard;
     this.store.dispatch(
       buyCoins({ coinCode: this.selectedCurrency || '', amount: controls.amount.value || 0, cardNumber: card.card })
     );

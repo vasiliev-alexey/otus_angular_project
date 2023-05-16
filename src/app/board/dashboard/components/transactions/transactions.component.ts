@@ -17,8 +17,6 @@ export class TransactionsComponent implements OnInit {
   readonly transactionList = this.store.select(selectLastTransactions).pipe(map(trans => trans));
 
   ngOnInit(): void {
-
     this.store.dispatch(loadLastTransactions());
-
   }
 }

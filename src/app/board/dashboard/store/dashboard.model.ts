@@ -10,8 +10,13 @@ export   enum  TransactionType {
 }
 
 export interface  Transactions {
-  transactionDate: Date,
-  transactionAmount: number,
+  created: number,
+  amount: number,
   coinCode: string,
   transactionType: TransactionType
+}
+
+
+export interface TransactionList  {
+  transactions: Transactions[]
 }

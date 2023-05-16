@@ -3,9 +3,9 @@
 <table class="table">
   <thead tuiThead>
   <tr  >
-    <th   tuiTh>Foo</th>
-    <th  tuiTh>Bar</th>
-    <th  tuiTh>Bar</th>
+    <th   tuiTh>Coin</th>
+    <th  tuiTh>Amount</th>
+    <th  tuiTh>Transaction Date</th>
   </tr>
 </thead>
 
@@ -15,11 +15,12 @@
       {{transaction.coinCode}}
     </td>
     <td class="tui-table__td tui-table__td_first">
-      {{transaction.transactionAmount }}
+      <tui-money currency="840" [value]="transaction.amount" [colored]="false"></tui-money>
+
     </td>
 
     <td class="tui-table__td tui-table__td_first">
-      {{transaction.transactionDate | date: 'dd.MM.yyyy hh:mm:ss' }}
+      {{transaction.created | date: 'dd.MM.yyyy hh:mm:ss' }}
     </td>
 
   </tr>
