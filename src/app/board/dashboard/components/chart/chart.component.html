@@ -1,21 +1,13 @@
-
 <b>Portfolio stats</b>
 <div class="root">
-
-<tui-axes
-  class="axes"
-  [verticalLines]="10"
-  [horizontalLines]="5"
->
-  <tui-line-chart
-    [x]="0"
-    [y]="0"
-    [width]="400"
-    [height]="200"
-    [smoothingFactor]="50"
-    [value]="value"
-    [filled]="false"
-  ></tui-line-chart>
-</tui-axes>
-
+  <tui-axes class="axes" [verticalLines]="10" [horizontalLines]="5">
+    <tui-line-chart
+      [x]="0"
+      [y]="0"
+      [width]="400"
+      [height]="200"
+      [smoothingFactor]="50"
+      [value]="value"
+      [filled]="false"></tui-line-chart>
+  </tui-axes>
 </div>

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TuiPoint } from "@taiga-ui/core";
+import { TuiPoint } from '@taiga-ui/core';
 
 @Component({
   selector: 'wallet-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent {
   readonly value: readonly TuiPoint[] = [
@@ -16,5 +16,4 @@ export class ChartComponent {
     [300, 190],
     [350, 90],
   ];
-
 }
