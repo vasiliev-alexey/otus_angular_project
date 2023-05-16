@@ -19,16 +19,11 @@ export class SettingsEffects {
     return this.actions$.pipe(
       ofType(saveSettings),
       switchMap(v =>
-        this.authService.userId().pipe(
-          tap(val => console.log('T', val, v.currencyCode)),
-          exhaustMap(vr =>
-            this.settingsService.saveSettings(v).pipe(
-              map(() => {
-                return savedSettings();
-              }),
-              catchError(() => of({ type: '[ERRR] Loaded Error' }))
-            )
-          )
+        this.settingsService.saveSettings(v).pipe(
+          map(() => {
+            return savedSettings();
+          }),
+          catchError(() => of({ type: '[ERRR] Loaded Error' }))
         )
       )
     );

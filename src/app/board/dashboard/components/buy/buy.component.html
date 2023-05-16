@@ -3,7 +3,7 @@
 
 <form class="b-form" [formGroup]="buyForm" (submit)="buyCurrency()">
   <tui-hosted-dropdown [content]="content" [(open)]="cardSelectOpen" [(open)]="cardSelectOpen">
-    <button  tuiButton type="button" [iconRight]="arrow" [icon]="icon"></button>
+    <button tuiButton type="button" [iconRight]="arrow" [icon]="icon"></button>
     <label>{{ selectedCurrency }}</label>
   </tui-hosted-dropdown>
 
@@ -41,9 +41,5 @@
 </ng-template>
 
 <ng-template #icon>
-  <tui-avatar
-    size="xs"
-    [rounded]="true"
-    avatarUrl= "{{coinIconUrl}}"></tui-avatar>
-
+  <tui-avatar size="xs" [rounded]="true" avatarUrl="{{ coinIconUrl }}"></tui-avatar>
 </ng-template>

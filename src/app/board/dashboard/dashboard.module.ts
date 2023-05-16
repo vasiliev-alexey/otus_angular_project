@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {
   TuiButtonModule,
-  TuiDataListModule,
+  TuiDataListModule, TuiFormatDatePipeModule,
   TuiHintModule,
   TuiHostedDropdownModule,
   TuiLabelModule,
   TuiLinkModule,
   TuiSvgModule,
-  TuiTextfieldControllerModule,
-} from '@taiga-ui/core';
+  TuiTextfieldControllerModule
+} from "@taiga-ui/core";
 import {
   TuiCardModule,
   TuiCurrencyPipeModule,
@@ -38,11 +38,12 @@ import { RouterOutlet } from '@angular/router';
 import { SellComponent } from './components/sell/sell.component';
 import { ConvertComponent } from './components/convert/convert.component';
 import { EffectsModule } from '@ngrx/effects';
-import { SettingsEffects } from '../settings/store/settings.effects';
 import { StoreModule } from '@ngrx/store';
-import { SETTINGS_KEY, settingsReducer } from '../settings/store/settings.reducer';
+
 import { DashboardEffects } from './store/dasboard.effects';
 import { DASHBOARD_KEY, dashboardReducer } from './store/dashboard.reducer';
+import { DashboardBuyService } from './services/dashboard.buy.service';
+import { TuiTableModule } from "@taiga-ui/addon-table";
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { DASHBOARD_KEY, dashboardReducer } from './store/dashboard.reducer';
   ],
   imports: [
     CommonModule,
+    TuiTableModule,
     TuiLabelModule,
     TuiMoneyModule,
     TuiAxesModule,
@@ -82,9 +84,10 @@ import { DASHBOARD_KEY, dashboardReducer } from './store/dashboard.reducer';
     TuiInputCardGroupedModule,
     TuiCardModule,
     TuiHintModule,
-
     EffectsModule.forFeature([DashboardEffects]),
     StoreModule.forFeature(DASHBOARD_KEY, dashboardReducer),
+    TuiFormatDatePipeModule
   ],
+  providers: [DashboardBuyService],
 })
 export class DashboardModule {}

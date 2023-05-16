@@ -1,5 +1,5 @@
-// import { createFeatureSelector, createSelector } from '@ngrx/store';
-// import { SETTINGS_KEY, SettingsState } from './dasboard.reducer';
-//
-// const selectFeatureSettings = createFeatureSelector<SettingsState>(SETTINGS_KEY);
-// export const selectSettings = createSelector(selectFeatureSettings, state => state);
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { DASHBOARD_KEY, DashBoardState } from "./dashboard.reducer";
+
+const selectFeatureDashboard = createFeatureSelector<DashBoardState>(DASHBOARD_KEY);
+export const selectLastTransactions = createSelector(selectFeatureDashboard, state => state.lastTransactions);

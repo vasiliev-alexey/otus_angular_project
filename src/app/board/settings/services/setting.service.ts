@@ -13,13 +13,11 @@ export class SettingService {
   saveSettings(settings: Settings): Observable<boolean> {
     return this.authService.userId().pipe(
       switchMap(userId => {
-        console.log('setting saved by ', userId, settings);
-
-        const currSettings = this.firestore
+        this.firestore
           .collection('settings', ref => ref.where('userId', '==', userId))
           .get()
           .subscribe(data => {
-            console.log('empty', data.empty);
+            //   console.log('empty', data.empty);
 
             if (data.empty) {
               this.firestore
@@ -32,9 +30,9 @@ export class SettingService {
                 .update({ locationCode: settings.locationCode || '', currencyCode: settings.currencyCode || '' });
             }
 
-            data.forEach(el => console.log(el.data()));
+            //data.forEach(el => console.log(el.data()));
           });
-        console.log(currSettings);
+        // console.log(currSettings);
         return of(true);
       })
     );

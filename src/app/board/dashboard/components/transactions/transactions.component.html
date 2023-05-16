@@ -1,16 +1,27 @@
-<p>transactions works!</p>
+<p>Last Transactions</p>
 
-<table class="tui-table">
+<table class="table">
+  <thead tuiThead>
+  <tr  >
+    <th   tuiTh>Foo</th>
+    <th  tuiTh>Bar</th>
+    <th  tuiTh>Bar</th>
+  </tr>
+</thead>
+
   <tbody>
-    <tr class="tui-table__tr tui-table__tr_border_none"></tr>
-    <tr class="tui-table__tr tui-table__tr_border_none">
-      <tui-avatar new text="alex inkin" size="xxs" avatarUrl="tuiIconUser"></tui-avatar>
-      <td class="tui-table__td tui-table__td_last">angular.institute</td>
-    </tr>
+  <tr *ngFor="let transaction of transactionList | async" class="tui-table__tr tui-table__tr_border_none">
+    <td class="tui-table__td tui-table__td_first">
+      {{transaction.coinCode}}
+    </td>
+    <td class="tui-table__td tui-table__td_first">
+      {{transaction.transactionAmount }}
+    </td>
 
-    <tr class="tui-table__tr tui-table__tr_border_none">
-      <tui-avatar new text="alex inkin" size="xxs" avatarUrl="tuiIconUser"></tui-avatar>
-      <td class="tui-table__td tui-table__td_last">angular.institute</td>
-    </tr>
+    <td class="tui-table__td tui-table__td_first">
+      {{transaction.transactionDate | date: 'dd.MM.yyyy hh:mm:ss' }}
+    </td>
+
+  </tr>
   </tbody>
 </table>
