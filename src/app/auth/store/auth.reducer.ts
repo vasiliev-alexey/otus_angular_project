@@ -5,7 +5,6 @@ import {
   createFeatureSelector,
   createReducer,
   createSelector,
-  MetaReducer,
   on,
   props,
 } from '@ngrx/store';

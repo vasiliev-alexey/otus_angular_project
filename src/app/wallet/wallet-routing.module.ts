@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailsComponent } from './components/main/detail/details.component';
-import { WalletComponent } from './components/main/wallet/wallet.component';
-import { SettingsComponent } from '../settings/components/settings/settings.component';
 
-import { MainComponent } from './components/main/main.component';
+import { WalletComponent } from '../board/wallet/components/wallet/wallet.component';
+import { SettingsComponent } from '../board/settings/components/settings/settings.component';
+
 import { AuthGuard } from '../auth/services/auth.guard';
-import { PriceListComponent } from '../prices/components/price-list/price-list/price-list.component';
+import { PriceListComponent } from '../board/prices/components/price-list/price-list/price-list.component';
+import { DashboardComponent } from '../board/dashboard/components/dashboard/dashboard.component';
+import { MainComponent } from '../board/main/components/main/main.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -18,11 +19,11 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
-        path: 'details',
-        component: DetailsComponent,
+        path: 'dashboard',
+        component: DashboardComponent,
       },
       {
-        path: 'wallet',
+        path: 'main',
         component: WalletComponent,
       },
 

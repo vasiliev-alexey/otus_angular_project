@@ -13,21 +13,19 @@ import {
   TuiSvgModule,
 } from '@taiga-ui/core';
 import { TuiAvatarModule } from '@taiga-ui/kit';
-import { WalletComponent } from './components/wallet.component';
-import { HeaderComponent } from './components/header/header.component';
-import { LogoComponent } from './components/header/logo/logo.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { MainComponent } from './components/main/main.component';
-import { DetailsComponent } from './components/main/detail/details.component';
-import { StoreModule } from '@ngrx/store';
-import { currencyReducer } from './store/currency.reducer';
+import { LandingComponent } from './components/landing/landing.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SettingsModule } from '../settings/settings.module';
-import { PricesModule } from '../prices/prices.module';
+import { SettingsModule } from '../board/settings/settings.module';
+import { PricesModule } from '../board/prices/prices.module';
 import { APP_CONFIG, Configuration } from '../config/appConfig';
+import { NavigationModule } from '../navigation/navigation.module';
+
+import { HeaderModule } from '../header/header.module';
+import { MainModule } from '../board/main/main.module';
 
 @NgModule({
-  declarations: [WalletComponent, HeaderComponent, LogoComponent, NavigationComponent, MainComponent, DetailsComponent],
+  declarations: [LandingComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -45,7 +43,9 @@ import { APP_CONFIG, Configuration } from '../config/appConfig';
     TuiHostedDropdownModule,
     TuiDataListModule,
     PricesModule,
-    StoreModule.forFeature('currency', currencyReducer),
+    NavigationModule,
+    HeaderModule,
+    MainModule,
   ],
   providers: [{ provide: APP_CONFIG, useValue: Configuration }],
 })

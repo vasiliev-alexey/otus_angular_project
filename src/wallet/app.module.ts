@@ -2,12 +2,11 @@ import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { TUI_SANITIZER, TUI_BUTTON_OPTIONS } from '@taiga-ui/core';
 import { isDevMode, NgModule } from '@angular/core';
 
-import { WalletComponent } from '../app/wallet/components/wallet.component';
+import { LandingComponent } from '../app/wallet/components/landing/landing.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-// import { effects } from '../app/wallet/store';
-import { AuthModule } from '../app/auth/auth.module';
+
 import { WalletModule } from '../app/wallet/wallet.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +15,7 @@ import { CoreModule } from '../app/@core/core.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { NavigationModule } from '../app/navigation/navigation.module';
 
 @NgModule({
   declarations: [],
@@ -26,6 +26,7 @@ import { environment } from '../environments/environment';
     CoreModule,
     EffectsModule.forRoot([]),
     WalletModule,
+    NavigationModule,
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
@@ -44,6 +45,6 @@ import { environment } from '../environments/environment';
       },
     },
   ],
-  bootstrap: [WalletComponent],
+  bootstrap: [LandingComponent],
 })
 export class AppModule {}
