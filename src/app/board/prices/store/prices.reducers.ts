@@ -1,14 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { Price } from './prices.models';
 import { loadedPrices } from './prices.actions';
+import {initialState, PricesState} from './prices.state';
 
 export const PRICES_KEY = 'prices';
 
-export interface PricesState {
-  prices?: Array<Price>;
-}
-
-const initialState: PricesState = {};
 
 export const priceReducer = createReducer(
   initialState,

@@ -1,0 +1,35 @@
+<b>Actions panel</b>
+<tui-tabs [(activeItemIndex)]="activeItemIndex">
+  <button
+    tuiTab
+    (click)="onClick('Maps')"
+  >
+    <tui-svg
+      src="tuiIconShoppingCart"
+      class="tui-space_right-2"
+    ></tui-svg>
+    Buy
+  </button>
+  <button
+    tuiTab
+
+    (click)="onClick('Calls')"
+  >
+    <tui-svg
+      src="tuiIconShoppingBag"
+      class="tui-space_right-2"
+    ></tui-svg>
+    Sell
+  </button>
+  <button
+    tuiTab
+    (click)="onClick('Settings')"
+  >
+    <tui-svg
+      src="tuiIconShuffle"
+      class="tui-space_right-2"
+    ></tui-svg>
+    Convert
+  </button>
+</tui-tabs>
+
