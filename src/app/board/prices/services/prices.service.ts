@@ -11,7 +11,8 @@ export class PricesService {
 
   getAll(req: PriceRequestParams): Observable<Price[]> {
     return this.httpClient.get<Array<Price>>(
-      `${this.appConfig.URL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${req.size}&page=${req.page}&sparkline=false&locale=ru`
+      // `${this.appConfig.URL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${req.size}&page=${req.page}&sparkline=false&locale=ru`
+      `${this.appConfig.URL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&price_change_percentage=24h&locale=en`
     );
   }
 }

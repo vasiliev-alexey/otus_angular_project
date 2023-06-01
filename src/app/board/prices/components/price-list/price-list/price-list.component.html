@@ -12,29 +12,37 @@
     <input tuiTextfield type="text" />
   </tui-input>
 
-  <tui-loader class="inline-flex" size="xxl" textContent="... Loading"> </tui-loader>
+  <!--  <tui-loader class="inline-flex" size="xxl" textContent="... Loading"> </tui-loader>-->
 
-  <table class="tui-table" tuiOverscroll="scroll">
+  <table class="table" tuiTable>
+    <thead tuiThead>
+    <tr>
+      <th tuiTh>Coin</th>
+      <th tuiTh>CoinCode</th>
+      <th tuiTh>Price</th>
+      <th tuiTh>Change</th>
+    </tr>
+    </thead>
     <tbody>
-      <tr *ngFor="let price of priceList | async" class="tui-table__tr tui-table__tr_border_none">
-        <td class="tui-table__td tui-table__td_first">
-          <tui-avatar class="tui-space_top-1" avatarUrl="{{ price.image }}" size="s"></tui-avatar>
-        </td>
-        <td class="tui-table__td">{{ price.name }}</td>
-        <td class="tui-table__td">
-          <tui-money currency="RUB" [value]="price.current_price"></tui-money>
-        </td>
-        <td class="tui-table__td">{{ price.symbol }}</td>
-        <td class="tui-table__td">{{ price.id }}</td>
-      </tr>
+
+
+    <tr *ngFor="let price of priceList | async" class="tui-table__tr tui-table__tr_border_none">
+      <td class="tui-table__td tui-table__td_first">
+        <tui-avatar class="tui-space_top-1" avatarUrl="{{ price.image }}" size="s"></tui-avatar>
+      </td>
+      <td class="tui-table__td">{{ price.name }}</td>
+      <td class="tui-table__td">
+        <tui-money currency="USD" [value]="price.current_price"></tui-money>
+      </td>
+      <td class="tui-table__td">{{ price.price_change_percentage_24h }}</td>
+    </tr>
     </tbody>
   </table>
 
   <tui-table-pagination
-    [total]="total"
+    [total]="total.value"
     [(page)]="page"
     [(size)]="size"
+    [items]="[]"
     (paginationChange)="onChange($event)"></tui-table-pagination>
-  <!--  <p>Current page: {{ page }}</p>-->
-  <!--  <p>Items per page: {{ size }}</p>-->
 </ng-container>
