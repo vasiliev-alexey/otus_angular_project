@@ -12,8 +12,8 @@ export class PricesEffects {
   loadMarkets = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadPrices),
-      switchMap(v =>
-        this.priceService.getAll(v).pipe(
+      switchMap(params =>
+        this.priceService.getAll(params).pipe(
           map(data => {
             return loadedPrices({ prices: data });
           })

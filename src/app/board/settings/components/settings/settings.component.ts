@@ -32,7 +32,7 @@ export class SettingsComponent implements OnInit {
   saveSettings() {
     console.log('save settings dispatch:');
 
-    this.store.dispatch(saveSettings({ currencyCode: this.settingsForm.controls.currencyCode.value|| '' }));
+    this.store.dispatch(saveSettings({ currencyCode: this.settingsForm.controls.currencyCode.value || '' }));
   }
 
   ngOnInit(): void {

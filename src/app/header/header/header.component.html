@@ -1,11 +1,7 @@
 <wallet-logo class="logo"></wallet-logo>
-
-<label class="nav-position" tuiLabel="Taiga">Navigation</label>
-
 <div class="action-panel">
   <p>{{ code$ | async }}</p>
   <tui-hosted-dropdown [content]="content" [(open)]="currencyOpen">
-    <!--    <button tuiButton type="button" [iconRight]="arrow" icon="tuiIconDollarSignLarge"></button>-->
     <button tuiButton type="button" [iconRight]="arrow" [icon]="tuiIconDollarSignLarge"></button>
   </tui-hosted-dropdown>
   <tui-avatar class="tui-space_top-1" avatarUrl="tuiIconBell"></tui-avatar>

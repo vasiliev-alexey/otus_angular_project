@@ -13,7 +13,7 @@
 
   <tbody>
     <tr *ngFor="let transaction of transactionList | async" class="tui-table__tr tui-table__tr_border_none">
-      <td class="tui-table__td tui-table__td_first">
+      <td class="tui-table__td">
         <tui-avatar
           class="small"
           size="xxs"
@@ -21,18 +21,18 @@
           [avatarUrl]="getIconUrl(transaction.coinCode)"></tui-avatar>
       </td>
 
-      <td class="tui-table__td tui-table__td_first">
+      <td class="tui-table__td tui-table__td_text_center">
         {{ transaction.coinCode }}
       </td>
 
-      <td class="tui-table__td tui-table__td_first">
+      <td class="tui-table__td tui-table__td_text_center">
         <tui-money currency="840" [value]="transaction.amount" [colored]="false"></tui-money>
       </td>
 
-      <td class="tui-table__td tui-table__td_first">
+      <td class="tui-table__td tui-table__td_text_center">
         {{ transaction.created | date : 'dd.MM.yyyy hh:mm:ss' }}
       </td>
-      <td class="tui-table__td tui-table__td_first">
+      <td class="tui-table__td tui-table__td_text_center">
         {{ transaction.transactionType }}
       </td>
     </tr>

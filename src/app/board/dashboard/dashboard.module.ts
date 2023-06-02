@@ -47,7 +47,7 @@ import { DashboardEffects } from './store/dasboard.effects';
 import { DASHBOARD_KEY, dashboardReducer } from './store/dashboard.reducer';
 import { DashboardBuyService } from './services/dashboard.buy.service';
 import { TuiTableModule } from '@taiga-ui/addon-table';
-import { DashboardUpDownPipe } from './pipes/dashboard.updown.pipe';
+import { CoreModule } from '../../@core/core.module';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,6 @@ import { DashboardUpDownPipe } from './pipes/dashboard.updown.pipe';
     BuyComponent,
     SellComponent,
     ConvertComponent,
-    DashboardUpDownPipe,
   ],
   imports: [
     CommonModule,
@@ -94,6 +93,7 @@ import { DashboardUpDownPipe } from './pipes/dashboard.updown.pipe';
     TuiFormatDatePipeModule,
     TuiBadgeModule,
     TuiTooltipModule,
+    CoreModule,
   ],
   providers: [DashboardBuyService],
 })

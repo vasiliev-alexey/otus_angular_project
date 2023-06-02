@@ -5,7 +5,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 
 import { TuiHostedDropdownComponent } from '@taiga-ui/core';
 import { Store } from '@ngrx/store';
-import {  sellCoins } from '../../store/dashboard.actions';
+import { sellCoins } from '../../store/dashboard.actions';
 import { TuiCard } from '@taiga-ui/addon-commerce/interfaces/card';
 import { TransactionType } from '../../store/dashboard.model';
 

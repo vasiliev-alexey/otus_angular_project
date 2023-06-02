@@ -12,6 +12,7 @@ export const priceReducer = createReducer(
     (state, action): PricesState => ({
       ...state,
       prices: action.prices,
+      isLoad: false,
     })
   )
 );

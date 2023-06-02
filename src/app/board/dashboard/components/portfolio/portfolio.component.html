@@ -13,11 +13,11 @@
 
   <tbody>
     <tr *ngFor="let prt of portfolio | async" class="tui-table__tr tui-table__tr_border_none">
-      <td class="tui-table__td tui-table__td_first">
+      <td class="tui-table__td tui-table__td_text_center">
         {{ prt.coinCode }}
       </td>
 
-      <td class="tui-table__td tui-table__td_first">
+      <td class="tui-table__td tui-table__td_text_center">
         <!--        {{ prt.amount }}-->
         <div>
           <tui-money [value]="prt.amount" currency="BTC" [colored]="true"></tui-money>
@@ -27,7 +27,7 @@
         </div>
       </td>
 
-      <td class="tui-table__td tui-table__td_first">
+      <td class="tui-table__td tui-table__td_text_center">
         <tui-badge class="tui-space_right-2" status="neutral" [value]="prt.changePercent | dashboardUpDown"></tui-badge>
       </td>
     </tr>

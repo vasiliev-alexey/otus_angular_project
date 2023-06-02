@@ -13,10 +13,8 @@ import { AuthService } from '../../@core/services/auth.service';
 })
 export class NavigationComponent implements OnInit {
   private router = inject(Router);
-
-  private store = inject(Store);
   private authService = inject(AuthService);
-  readonly isAuth = new BehaviorSubject(false); // = this.authService.isAuthenticated();
+  readonly isAuth = new BehaviorSubject(false);
 
   currentSelectedItem = '';
 
@@ -31,10 +29,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
     this.authService
       .isAuthenticated()
-      .pipe(
-        tap(() => console.log('rrrrrrr')),
-        map(val => this.isAuth.next(val))
-      )
+      .pipe(map(val => this.isAuth.next(val)))
       .subscribe();
   }
 }

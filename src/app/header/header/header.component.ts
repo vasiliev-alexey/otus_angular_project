@@ -6,6 +6,7 @@ import { selectCurrency, setCurrency } from '../store/currency.reducer';
 
 import { tuiIconDollarSignLarge } from '@taiga-ui/icons';
 import { login, logout } from '../../auth/store/auth.reducer';
+import { Router } from '@angular/router';
 
 const COMPONENTS_PATH = 'components';
 
@@ -22,6 +23,7 @@ export class HeaderComponent {
   component?: TuiHostedDropdownComponent;
 
   private store = inject(Store);
+  private router = inject(Router);
 
   readonly items = ['Login', 'Logout'];
 
@@ -38,11 +40,11 @@ export class HeaderComponent {
           routerLink: `/${COMPONENTS_PATH}/input`,
         },
         {
-          label: 'Euro',
+          label: 'EUR',
           routerLink: `/${COMPONENTS_PATH}/select`,
         },
         {
-          label: 'Ruble',
+          label: 'RUB',
           routerLink: `/${COMPONENTS_PATH}/data-list`,
         },
       ],
@@ -52,11 +54,8 @@ export class HeaderComponent {
   code$ = this.store.select(selectCurrency);
 
   onCurrencyOpen(code: string) {
-    console.log('onCurrencyOpen');
     this.currencyOpen = false;
-
     this.store.dispatch(setCurrency({ code }));
-
     this.component?.nativeFocusableElement?.focus();
   }
 
@@ -66,6 +65,7 @@ export class HeaderComponent {
     if (item == 'Login') {
       this.store.dispatch(login({ userName: 'alex' }));
     } else {
+      this.router.navigateByUrl('/');
       this.store.dispatch(logout());
     }
 
