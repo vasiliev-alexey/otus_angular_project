@@ -14,6 +14,9 @@ interface BuyFormModel {
   meta: AbstractControl<string | null>;
 }
 
+const IMG_URL_PATH =
+  'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/icon/';
+
 @Component({
   selector: 'wallet-buy',
   templateUrl: './buy.component.html',
@@ -81,9 +84,7 @@ export class BuyComponent {
   }
 
   get coinIconUrl(): string {
-    return this.selectedCurrency
-      ? `https://raw.githubusercontent.com/spothq/cryptocurrency-icons/1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/icon/${this.selectedCurrency.toLowerCase()}.svg`
-      : this._coinIconUrl;
+    return this.selectedCurrency ? `${IMG_URL_PATH}${this.selectedCurrency.toLowerCase()}.svg` : this._coinIconUrl;
   }
 
   buyCurrency() {

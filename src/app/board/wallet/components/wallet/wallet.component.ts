@@ -11,7 +11,6 @@ import { TuiTablePagination } from '@taiga-ui/addon-table';
 })
 export class WalletComponent implements OnInit {
   private store = inject(Store);
-  assets: any;
   testValue = new FormControl(true);
   total = 100;
   page = 10;

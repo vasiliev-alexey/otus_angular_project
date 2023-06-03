@@ -11,7 +11,7 @@ export class AuthEffects {
       ofType(fetchData),
       switchMap(() =>
         of([]).pipe(
-          map(_ => walletDataLoaded({ code: 'Loaded' })),
+          map(() => walletDataLoaded({ code: 'Loaded' })),
           catchError(() => of({ type: '[ERRR] Loaded Error' }))
         )
       )

@@ -13,7 +13,7 @@ export class ActionsComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
-  onClick(item: string): void {
-    this.router.navigate([item], { relativeTo: this.route });
+  async onClick(item: string): Promise<void> {
+    await this.router.navigate([item], { relativeTo: this.route });
   }
 }

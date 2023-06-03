@@ -1,8 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { tuiIconGridLarge, tuiIconSettingsLarge } from '@taiga-ui/icons';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../@core/services/auth.service';
 

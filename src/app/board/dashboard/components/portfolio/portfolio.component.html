@@ -1,6 +1,6 @@
 <b>My portfolio</b>
 
-<button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3" (click)="onClick()">See All</button>
+<button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3">See All</button>
 
 <table class="tui-table pad" tuiTable>
   <thead tuiThead>
@@ -18,7 +18,6 @@
       </td>
 
       <td class="tui-table__td tui-table__td_text_center">
-        <!--        {{ prt.amount }}-->
         <div>
           <tui-money [value]="prt.amount" currency="BTC" [colored]="true"></tui-money>
         </div>

@@ -32,15 +32,15 @@ export class SettingsEffects {
   loadSettings = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadSettings),
-      switchMap(v =>
+      switchMap(() =>
         this.authService.userId().pipe(
-          exhaustMap(_vr =>
+          exhaustMap(() =>
             this.settingsService.loadSettings().pipe(
               map(data => {
                 console.log('loaded data', data);
                 return loadedSettings(data);
               }),
-              catchError(() => of({ type: '[ERRR] Loaded Error' }))
+              catchError(() => of({ type: '[ERR] Loaded Error' }))
             )
           )
         )

@@ -3,26 +3,16 @@
 <div class="row">
   <div class="column-left">
     <div class="chart">
-      <label tuiLabel="Taiga">Portfolio Value</label>
-
       <tui-money [value]="0" [colored]="true"></tui-money>
       <hr />
-
       <wallet-chart></wallet-chart>
     </div>
-    <hr />
-
     <wallet-portfolio></wallet-portfolio>
   </div>
   <div class="column-right">
-    <hr />
-
-    <hr />
-
     <div class="actions">
       <wallet-actions></wallet-actions>
     </div>
-    <hr />
     <wallet-transactions></wallet-transactions>
   </div>
 </div>

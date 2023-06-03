@@ -1,4 +1,4 @@
-<ng-container *ngIf="(isLoad | async) == false; else loader">
+<ng-container *ngIf="(isLoad | async) === false; else loader">
   <tui-input [ngModel]="searchText">
     Search by code
     <input tuiTextfield type="text" />

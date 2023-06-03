@@ -11,8 +11,8 @@ export class WalletEffects {
       ofType(fetchData),
       mergeMap(() =>
         of([]).pipe(
-          map(_ => walletDataLoaded({ code: 'Loaded' })),
-          catchError(() => of({ type: '[ERRR] Loaded Error' }))
+          map(() => walletDataLoaded({ code: 'Loaded' })),
+          catchError(() => of({ type: '[ERR] Loaded Error' }))
         )
       )
     );

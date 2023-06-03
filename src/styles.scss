@@ -9,16 +9,6 @@ html {
   overflow: hidden;
 }
 
-//.header .right {
-// // position: absolute;
-//  // top: 51%;
-// // transform: translateY(-51%);
-// // right: 5.18vw;
-////  color: yellow;
-////  font-size: 4.6vmin;
-//  // font-weight: 301;
-//}
-
 .main-wrapper {
   height: 100%;
   width: 100%;
@@ -46,20 +36,12 @@ html {
 }
 
 .column-left {
-  // background: red;
-
   flex: 0 0 20%;
 }
 
 .column-center {
-  //  background: blue;
   width: 80%;
 }
-
-//.column-right {
-//  flex: 0 0 20%;
-// // background: yellow;
-//}
 
 tui-root {
   height: 100%;
@@ -67,10 +49,4 @@ tui-root {
 
 .header {
   height: 7%;
-  //flex: 0 0 10px;
-  // padding: 2.9vh 5.2vw;
-  // border-bottom: 2px solid Chartreuse;
-  // position: relative;
-  // z-index: 2;
-  //height: 5vmin;
 }

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { AuthService } from '../../../@core/services/auth.service';
 import { DashboardBuyService } from '../services/dashboard.buy.service';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { catchError, exhaustMap, of } from 'rxjs';
 import {
   buyCoins,
@@ -27,15 +27,14 @@ export class DashboardEffects {
   buyCoins = createEffect(() => {
     return this.actions$.pipe(
       ofType(buyCoins, sellCoins),
-      switchMap(v =>
+      switchMap(marketParams =>
         this.authService.userId().pipe(
-          tap(val => console.log('T', val, v.coinCode)),
-          exhaustMap(vr =>
-            this.dashboardBuyService.buyCoin(v).pipe(
-              map(p => {
+          exhaustMap(() =>
+            this.dashboardBuyService.buyCoin(marketParams).pipe(
+              map(() => {
                 return coinsBought();
               }),
-              catchError(() => of({ type: '[ERRR] Loaded Error' }))
+              catchError(() => of({ type: '[ERROR] Loaded Error' }))
             )
           )
         )
@@ -46,7 +45,7 @@ export class DashboardEffects {
   loadLastTransactions = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadLastTransactions),
-      switchMap(v =>
+      switchMap(() =>
         this.authService.userId().pipe(
           exhaustMap(vr =>
             this.dashboardTransactionService.loadLastTransactions(vr).pipe(
@@ -64,7 +63,7 @@ export class DashboardEffects {
   loadUserPortfolio = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadPortfolio),
-      switchMap(_ =>
+      switchMap(() =>
         this.authService.userId().pipe(
           exhaustMap(vr =>
             this.dashboardPortfolioService.loadUserPortfolio(vr).pipe(

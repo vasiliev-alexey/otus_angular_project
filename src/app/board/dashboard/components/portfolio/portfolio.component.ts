@@ -14,8 +14,6 @@ export class PortfolioComponent implements OnInit {
 
   readonly portfolio = this.store.select(selectPortfolio).pipe(map(trans => trans));
 
-  onClick() {}
-
   ngOnInit(): void {
     this.store.dispatch(loadPortfolio());
   }
