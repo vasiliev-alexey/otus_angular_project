@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper header {
+  flex: 0 0 auto;
+}
+
+.main-wrapper .columns-wrapper {
+  flex: 3 3 auto;
+}
+
+.columns-wrapper {
+  display: flex;
+}
+
+.column-left,
+.column-center,
+.column-right {
+  flex: 2;
+  border: red 1px dashed;
+}
+
+.column-left {
+  flex: 0 0 20%;
+}
+
+.column-center {
+  width: 80%;
+}
+
+tui-root {
+  height: 100%;
+}
+
+.header {
+  height: 7%;
+}

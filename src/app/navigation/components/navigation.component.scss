@@ -1,0 +1,22 @@
+:host {
+  flex-direction: column;
+  height: 100%;
+  display: flex;
+}
+
+.no-bullets {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.nav-position {
+  display: flex;
+  flex-direction: column;
+  flex: 88%;
+}
+.settings-panel {
+  display: flex;
+  flex: auto;
+
+  align-content: flex-end;
+}

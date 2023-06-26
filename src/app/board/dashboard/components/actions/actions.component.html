@@ -1,0 +1,18 @@
+<tui-tabs [(activeItemIndex)]="activeItemIndex">
+  <button tuiTab (click)="onClick('buy')">
+    <tui-svg src="tuiIconShoppingCart" class="tui-space_right-10 tui-space_left-10"></tui-svg>
+    Buy
+  </button>
+
+  <button tuiTab (click)="onClick('sell')">
+    <tui-svg src="tuiIconShoppingBag" class="tui-space_right-10 tui-space_left-10"></tui-svg>
+    Sell
+  </button>
+  <button disabled tuiTab (click)="onClick('convert')">
+    <tui-svg src="tuiIconShuffle" class="tui-space_right-10 tui-space_left-10"></tui-svg>
+
+    Convert
+  </button>
+</tui-tabs>
+
+<router-outlet></router-outlet>

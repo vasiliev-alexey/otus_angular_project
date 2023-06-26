@@ -1,0 +1,46 @@
+<ng-container *ngIf="(isLoad | async) === false; else loader">
+  <tui-input [ngModel]="searchText">
+    Search by code
+    <input tuiTextfield type="text" />
+  </tui-input>
+
+  <table class="table" tuiTable>
+    <thead tuiThead>
+      <tr>
+        <th tuiTh>Coin</th>
+        <th tuiTh>CoinCode</th>
+        <th tuiTh>Price</th>
+        <th tuiTh>Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let price of priceList | async" class="tui-table__tr tui-table__tr_border_none">
+        <td class="tui-table__td tui-table__td_align_center tui-table__td_text_center">
+          <tui-avatar class="tui-space_top-1" avatarUrl="{{ price.image }}" size="s"></tui-avatar>
+        </td>
+        <td class="tui-table__td">{{ price.name }}</td>
+        <td class="tui-table__td">
+          <tui-money currency="USD" [value]="price.current_price"></tui-money>
+        </td>
+
+        <td class="tui-table__td tui-table__td_text_center">
+          <tui-badge class="tui-space_left-2" status="neutral" [value]="price.price_change_percentage_24h"></tui-badge>
+          <tui-svg
+            [className]="price.price_change_percentage_24h > 0 ? 'icon_green' : 'icon_red'"
+            [src]="getUpDownIcon(price.price_change_percentage_24h)"></tui-svg>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <tui-table-pagination
+    [total]="total.value"
+    [(page)]="page"
+    [(size)]="size"
+    [items]="[]"
+    (paginationChange)="onChange($event)"></tui-table-pagination>
+</ng-container>
+
+<ng-template #loader>
+  <tui-loader class="inline-flex" size="xxl" textContent="... Loading"></tui-loader>
+</ng-template>

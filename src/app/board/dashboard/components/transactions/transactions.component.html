@@ -1,0 +1,40 @@
+<p>Last Transactions</p>
+
+<table class="table" tuiTable>
+  <thead tuiThead>
+    <tr>
+      <th tuiTh>Coin</th>
+      <th tuiTh>CoinCode</th>
+      <th tuiTh>Amount</th>
+      <th tuiTh>Transaction date</th>
+      <th tuiTh>Transaction type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let transaction of transactionList | async" class="tui-table__tr tui-table__tr_border_none">
+      <td class="tui-table__td">
+        <tui-avatar
+          class="small"
+          size="xxs"
+          [rounded]="true"
+          [avatarUrl]="getIconUrl(transaction.coinCode)"></tui-avatar>
+      </td>
+
+      <td class="tui-table__td tui-table__td_text_center">
+        {{ transaction.coinCode }}
+      </td>
+
+      <td class="tui-table__td tui-table__td_text_center">
+        <tui-money currency="840" [value]="transaction.amount" [colored]="false"></tui-money>
+      </td>
+
+      <td class="tui-table__td tui-table__td_text_center">
+        {{ transaction.created | date : 'dd.MM.yyyy hh:mm:ss' }}
+      </td>
+      <td class="tui-table__td tui-table__td_text_center">
+        {{ transaction.transactionType }}
+      </td>
+    </tr>
+  </tbody>
+</table>

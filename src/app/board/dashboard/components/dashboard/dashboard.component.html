@@ -1,0 +1,18 @@
+<!--<p>dashboard works!</p>-->
+
+<div class="row">
+  <div class="column-left">
+    <div class="chart">
+      <tui-money [value]="0" [colored]="true"></tui-money>
+      <hr />
+      <wallet-chart></wallet-chart>
+    </div>
+    <wallet-portfolio></wallet-portfolio>
+  </div>
+  <div class="column-right">
+    <div class="actions">
+      <wallet-actions></wallet-actions>
+    </div>
+    <wallet-transactions></wallet-transactions>
+  </div>
+</div>
